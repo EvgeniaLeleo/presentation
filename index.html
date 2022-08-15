@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
+    <!-- <link rel="stylesheet" href="plugin/highlight/monokai.css" /> -->
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script>
+      Reveal.initialize({
+        plugins: [RevealNotes],
+      });
+    </script>
+    <script>
+      Reveal.initialize({
+        plugins: [RevealHighlight],
+      });
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <div
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 100%;
+            "
+          >
+            <img
+              data-src="./logo.png"
+              style="width: 150px; height: 150px; margin-right: 20px"
+            />
+            <h1 style="color: #61dafb">React</h1>
+          </div>
+          <aside class="notes">These are your private notes 📝</aside>
+        </section>
+        <section>
+          <h3>Why React?</h3>
+          <ul>
+            <li class="fragment" data-fragment-index="1">Declarative</li>
+            <p
+              class="fragment"
+              data-fragment-index="2"
+              style="font-size: smaller; opacity: 0.6"
+            >
+              <span style="text-decoration: line-through">How?</span>
+              <span>What?</span>
+            </p>
+
+            <p
+              class="fragment"
+              data-fragment-index="3"
+              style="font-size: smaller; opacity: 0.6"
+            >
+              We describe the final state of the desired UI.
+            </p>
+            <li class="fragment" data-fragment-index="4">Component-Based</li>
+            <p
+              class="fragment"
+              data-fragment-index="5"
+              style="font-size: smaller; opacity: 0.6"
+            >
+              We build encapsulated components that manage their own state.
+            </p>
+          </ul>
+        </section>
+        <!-- <section>
+          <section><h2>Declarative</h2></section>
+          <section>Vertical Slide 2</section>
+        </section> -->
+        <!-- Installation -->
+        <section>
+          <h3>Installation</h3>
+          <pre><code>npx create-react-app my-app</code></pre>
+        </section>
+        <section>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              gap: 20px;
+            "
+          >
+            <p>Runs the app in the development mode</p>
+            <pre><code>npm run start</code></pre>
+            <ul
+              class="fragment"
+              data-fragment-index="5"
+              style="font-size: 24px; opacity: 0.6"
+            >
+              <li>The page will reload if you make edits.</li>
+              <li>You will also see any lint errors in the console.</li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              gap: 20px;
+            "
+          >
+            <p style="text-align: left">
+              Creates a production build of the app in the build/ folder
+            </p>
+            <pre><code>npm run build</code></pre>
+          </div>
+        </section>
+        <section>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              gap: 20px;
+            "
+          >
+            <h3>JSX</h3>
+            <pre>
+            <code>const element = <h1>Hello, I'm a JSX element!</h1></code>
+        </pre>
+            <ul
+              class="fragment"
+              data-fragment-index="5"
+              style="font-size: 24px; opacity: 0.6"
+            >
+              <li>A syntax extension to JavaScript.</li>
+              <li>
+                JSX produces React “elements” - the smallest building blocks of
+                React apps.
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              gap: 20px;
+            "
+          >
+            <h3>Components and Props</h3>
+            <pre>
+            <code>function FirstComponent(props) {
+              return <h1> My first component {props.name} </h1>
+            }</code>
+        </pre>
+            <ul
+              class="fragment"
+              data-fragment-index="5"
+              style="font-size: 24px; opacity: 0.6"
+            >
+              <li>
+                Function component accepts a single "props" object argument with
+                data and returns a React element.
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              gap: 20px;
+            "
+          >
+            <h3>Hooks</h3>
+            <pre>
+            <code  data-trim>import { useState } from 'react';
+
+const [isVisible, setIsVisible] = useState(false);
+            </code>
+        </pre>
+            <ul
+              class="fragment"
+              data-fragment-index="2"
+              style="font-size: 24px; opacity: 0.6"
+            >
+              <li>
+                useState returns a pair: the current state value and a function
+                that lets you update it.
+              </li>
+              <li>The only argument of useState is the initial state.</li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <h3>JavaScript expressions</h3>
+          <pre><code data-line-numbers data-ln-start-from="14" data-line-numbers="3,8-10">
+return (
+  <div className="Riddle">
+    <div className="Riddle-Content">
+      {riddle.text}
+      <button className="Riddle-Button" onClick={handleClick}>
+        {isVisible ? 'Hide answer' : 'Show answer'}
+      </button>
+    </div>
+    {isVisible && <p className="Riddle-AnswerText"> {riddle.answer}</p>}
+  </div>
+  ); 
+						</code>
+					</pre>
+          <p style="font-size: 24px; opacity: 0.6">
+            You can put any valid JavaScript expression inside the curly braces
+            in JSX.
+          </p>
+        </section>
+        <section>
+          <video data-autoplay src="./state.mkv"></video>
+        </section>
+        <section>
+          <h3>Rendering Multiple Components</h3>
+          <pre><code data-line-numbers data-ln-start-from="4">
+const riddles = [
+  { text: 'Riddle1', answer: 'Answer1'},
+  { text: 'Riddle2', answer: 'Answer2'},
+  { text: 'Riddle3', answer: 'Answer3'},
+];
+
+function App() {
+  return (
+    <div className="App">
+      <h1>Animal riddles</h1>
+      {riddles.map((riddle, index) => (
+        <Riddle riddle={riddles[index]} key={riddles[index].answer}></Riddle>
+      ))}
+    </div>
+  );
+}
+						</code>
+					</pre>
+          <ul
+            class="fragment"
+            data-fragment-index="2"
+            style="font-size: 24px; opacity: 0.6"
+          >
+            <li>
+              We loop through the array using the JavaScript map() function.
+            </li>
+            <li>
+              Keys help React identify which items have changed, are added, or
+              are removed.
+            </li>
+            <li>
+              Keys should be given to the elements inside the array to give the
+              elements a stable identity.
+            </li>
+          </ul>
+        </section>
+        <section>
+          <video data-autoplay src="./map.mkv"></video>
+        </section>
+        <section><h2>Thank you!</h2></section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
