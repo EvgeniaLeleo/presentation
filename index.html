@@ -2,32 +2,29 @@
 <html>
   <head>
     <meta charset="utf-8" />
+
+    <title>React presentation</title>
+
     <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+      name="description"
+      content="A framework for easily creating beautiful presentations using HTML"
+    />
+    <meta name="author" content="Hakim El Hattab" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
     />
 
-    <title>reveal.js</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="dist/reset.css" />
     <link rel="stylesheet" href="dist/reveal.css" />
-    <link rel="stylesheet" href="dist/theme/black.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" id="theme" />
 
-    <!-- Theme used for syntax highlighted code -->
-    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
-    <!-- <link rel="stylesheet" href="plugin/highlight/monokai.css" /> -->
-    <script src="plugin/highlight/highlight.js"></script>
-    <script src="plugin/notes/notes.js"></script>
-    <script>
-      Reveal.initialize({
-        plugins: [RevealNotes],
-      });
-    </script>
-    <script>
-      Reveal.initialize({
-        plugins: [RevealHighlight],
-      });
-    </script>
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
   </head>
   <body>
     <div class="reveal">
@@ -47,8 +44,13 @@
             />
             <h1 style="color: #61dafb">React</h1>
           </div>
-          <aside class="notes">These are your private notes 📝</aside>
+          <aside class="notes">
+            Hi! My name is Evgenia. And today I want to introduce you to the
+            basics of React. So, let's get started. React is a JavaScript
+            library for building user interfaces 📝
+          </aside>
         </section>
+
         <section>
           <h3>Why React?</h3>
           <ul>
@@ -78,16 +80,35 @@
               We build encapsulated components that manage their own state.
             </p>
           </ul>
+          <aside class="notes">
+            The main features of React are the declarative approach (when you
+            describe the final state of the desired UI. We don't provide
+            step-by-step instructions. Instead, we describe the final UI we want
+            to get).
+            <br />React is Component-Based That means we build encapsulated
+            components that manage their own state. And then we compose them to
+            make complex UIs.
+          </aside>
         </section>
-        <!-- <section>
-          <section><h2>Declarative</h2></section>
-          <section>Vertical Slide 2</section>
-        </section> -->
-        <!-- Installation -->
+
         <section>
           <h3>Installation</h3>
           <pre><code>npx create-react-app my-app</code></pre>
+          <aside class="notes">
+            Let's begin with installation of Create React App, it is the best
+            way to start building a new single-page application in React. To
+            create a project, run: <br />npx create-react-app my-app
+          </aside>
         </section>
+
+        <section>
+          <img data-src="./react-start.png" style="width: 900px" />
+          <aside class="notes">
+            Now we see some folders: node_modules, public, src and package.json
+            with ready-made settings, dependencies and some scripts.
+          </aside>
+        </section>
+
         <section>
           <div
             style="
@@ -108,7 +129,13 @@
               <li>You will also see any lint errors in the console.</li>
             </ul>
           </div>
+          <aside class="notes">
+            Npm run start runs the app in the development mode. The page will
+            reload if you make edits. You will also see any lint errors in the
+            console.
+          </aside>
         </section>
+
         <section>
           <div
             style="
@@ -123,7 +150,13 @@
             </p>
             <pre><code>npm run build</code></pre>
           </div>
+          <aside class="notes">
+            When you're ready to deploy to production, you'll have to run npm
+            run build, and it will create an optimized build of your app in the
+            build folder. Under the hood, it uses Babel and webpack.
+          </aside>
         </section>
+
         <section>
           <div
             style="
@@ -135,8 +168,8 @@
           >
             <h3>JSX</h3>
             <pre>
-            <code>const element = <h1>Hello, I'm a JSX element!</h1></code>
-        </pre>
+						<code>const element = <h1>Hello, I'm a JSX element!</h1></code>
+					</pre>
             <ul
               class="fragment"
               data-fragment-index="5"
@@ -149,7 +182,15 @@
               </li>
             </ul>
           </div>
+
+          <aside class="notes">
+            Some words about JSX. Let's consider this variable declaration. It
+            looks like HTML, but it is a syntax extension to JavaScript. It
+            produces React “elements” - the smallest building blocks of React
+            apps.
+          </aside>
         </section>
+
         <section>
           <div
             style="
@@ -161,10 +202,10 @@
           >
             <h3>Components and Props</h3>
             <pre>
-            <code>function FirstComponent(props) {
-              return <h1> My first component {props.name} </h1>
+						<code>function FirstComponent(props) {
+							return <h1> My first component {props.name} </h1>
             }</code>
-        </pre>
+					</pre>
             <ul
               class="fragment"
               data-fragment-index="5"
@@ -176,10 +217,178 @@
               </li>
             </ul>
           </div>
+          <aside class="notes">
+            So we can create function components. Function component accepts a
+            single "props" object argument with data and returns a React
+            element. We call such components “function components” because they
+            are literally JavaScript functions.
+          </aside>
         </section>
+
         <section>
-          <div
-            style="
+          <p>App.js</p>
+          <pre><code>
+				function App() {
+					return (
+						<div className="App">
+							<h1>Animal riddles</h1>
+						</div>
+					);
+				}</code></pre>
+
+          <p>App.css</p>
+          <pre><code>
+						.App {
+							padding: 30px;
+						}
+						</code></pre>
+          <aside class="notes">
+            Ok, lets' try to create our first application - an Animal riddles
+            app. We'll remove all unnecessary from the file App.js Let's write a
+            header – Animal riddles. Add some styles to App.js. And here it is!
+            Our header!
+          </aside>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <p>Riddle.js</p>
+          <pre><code>
+						import React from 'react';
+						import './Riddle.css';
+						
+						function Riddle() {
+							return (
+								<div className="Riddle">
+									<div className="Riddle-Content">
+										{`A lot of spots. \nA long, long neck \nA funny scarf \nIt's a...`}
+										<button className="Riddle-Button">Show answer</button>
+									</div>
+						
+									<div className="Riddle-Answer">
+										<p className="Riddle-AnswerText">Giraffe!</p>
+										<img className="Riddle-Img" src="./giraffe.svg" alt="giraffe"></img>
+									</div>
+								</div>
+							);
+						}
+						
+						export default Riddle;
+						</code></pre>
+
+          <aside class="notes">
+						The word Class is a reserved word, so we write className.
+						Then we add a text of a riddle, an answer and a funny picture. And some styles. And.. nothing happened! Why?
+						There is no problem, we just have to add this component to our App.js!
+						React automatically imports it, thanks!
+						
+          </aside>
+        </section>
+
+        <section>
+          <p>Riddle.css</p>
+          <pre><code>
+						.Riddle {
+							display: flex;
+							justify-content: space-between;
+						
+							width: 320px;
+							margin-bottom: 30px;
+						}
+						
+						.Riddle-Content {
+							display: flex;
+							flex-direction: column;
+							justify-content: space-between;
+							white-space: pre-wrap;
+						
+							width: 220px;
+							height: 150px;
+						}
+						
+						.Riddle-Answer {
+							display: flex;
+							flex-direction: column;
+							align-items: center;
+						
+							width: 100px;
+						}
+						
+						.Riddle-AnswerText {
+							font-size: larger;
+							font-weight: 600;
+						
+							margin: 0;
+							margin-bottom: 15px;
+						}
+						
+						.Riddle-Img {
+							height: 100px;
+						}
+						
+						.Riddle-Button {
+							font-weight: 600;
+							line-height: 0;
+							text-align: center;
+						
+							color: #6200ee;
+						
+							width: 140px;
+							padding: 20px 20px;
+						
+							background-color: #fff;
+							border-radius: 5px;
+							border: 1px solid #6200ee;
+							outline: transparent;
+						
+							box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.15);
+							cursor: pointer;
+							transition: all 0.2s ease;
+						}
+						
+						.Riddle-Button:active {
+							background-color: #e1cefc;
+							transform: translate(0, 1px);
+							box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+						}
+						
+						.Riddle-Button:hover {
+							background-color: #e9dff8;
+						}
+						</code></pre>
+
+					</section>
+					
+					<section data-auto-animate>
+						<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|5|14-19"><script type="text/template">
+							import React from 'react';
+							import './Riddle.css';
+							
+function Riddle() {
+  const isVisible = false;
+
+  return (
+		<div className="Riddle">
+      <div className="Riddle-Content">
+				{`A lot of spots. \nA long, long neck \nA funny scarf \nIt's a...`}
+        <button className="Riddle-Button">Show answer</button>
+      </div>
+			
+      {isVisible && (
+				<div className="Riddle-Answer">
+					<p className="Riddle-AnswerText">Giraffe!</p>
+          <img className="Riddle-Img" src="./giraffe.svg" alt="giraffe"></img>
+        </div>
+				)}
+			</div>
+			);
+		}
+	</script></code></pre>
+</section>
+
+<section>
+	<div
+	style="
               display: flex;
               flex-direction: column;
               align-items: flex-start;
@@ -188,55 +397,103 @@
           >
             <h3>Hooks</h3>
             <pre>
-            <code  data-trim>import { useState } from 'react';
-
+							<code  data-trim>import { useState } from 'react';
+								
 const [isVisible, setIsVisible] = useState(false);
-            </code>
-        </pre>
-            <ul
-              class="fragment"
-              data-fragment-index="2"
-              style="font-size: 24px; opacity: 0.6"
-            >
-              <li>
-                useState returns a pair: the current state value and a function
-                that lets you update it.
-              </li>
-              <li>The only argument of useState is the initial state.</li>
-            </ul>
-          </div>
-        </section>
-        <section>
-          <h3>JavaScript expressions</h3>
-          <pre><code data-line-numbers data-ln-start-from="14" data-line-numbers="3,8-10">
-return (
-  <div className="Riddle">
-    <div className="Riddle-Content">
-      {riddle.text}
-      <button className="Riddle-Button" onClick={handleClick}>
-        {isVisible ? 'Hide answer' : 'Show answer'}
-      </button>
-    </div>
-    {isVisible && <p className="Riddle-AnswerText"> {riddle.answer}</p>}
-  </div>
+</code>
+</pre>
+<ul
+class="fragment"
+data-fragment-index="2"
+style="font-size: 24px; opacity: 0.6"
+>
+<li>
+	useState returns a pair: the current state value and a function
+	that lets you update it.
+</li>
+<li>The only argument of useState is the initial state.</li>
+</ul>
+</div>
+<aside class="notes">And now we would like the button to show and hide the answer.
+	So, we have to use a special function, it's called hook. Hooks let you use state and other React features inside function components. 
+	
+	We'll use hook useState(). 
+	Here are created a state and a method that will change this state. 
+	
+	The only argument of useState is the initial state. And if it's true, we can see the answer, and if the state is false, the answer is hidden.
+	
+	Let's add onClick, it's a function. We can write it here, but it's better to take it out separately. Let's call it handleClick, and it will change a visibility of the answer. </aside>
+</section>
+
+<section>
+	<h3>JavaScript expressions</h3>
+	<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="6|9"><script type="text/template">
+		return (
+			<div className="Riddle">
+				<div className="Riddle-Content">
+					{riddle.text}
+					<button className="Riddle-Button" onClick={handleClick}>
+						{isVisible ? 'Hide answer' : 'Show answer'}
+					</button>
+				</div>
+				{isVisible && <p className="Riddle-AnswerText"> {riddle.answer}</p>}
+			</div>
   ); 
-						</code>
+</script></code>
 					</pre>
           <p style="font-size: 24px; opacity: 0.6">
             You can put any valid JavaScript expression inside the curly braces
             in JSX.
           </p>
         </section>
+				
         <section>
-          <video data-autoplay src="./state.mkv"></video>
+					<video data-autoplay src="./state.mkv"></video>
         </section>
-        <section>
-          <h3>Rendering Multiple Components</h3>
+				
+				<section>
+					<h3>Using props</h3>
           <pre><code data-line-numbers data-ln-start-from="4">
 const riddles = [
-  { text: 'Riddle1', answer: 'Answer1'},
-  { text: 'Riddle2', answer: 'Answer2'},
-  { text: 'Riddle3', answer: 'Answer3'},
+{
+	text: `A lot of spots. \nA long, long neck \nA funny scarf \nIt's a...`,
+	answer: 'Giraffe!',
+	answerImgUrl: './giraffe.svg',
+},
+{
+	text: `Green and long \nWith many teeth. \nBeautiful smile — \nIt's a...`,
+	answer: 'Crocodile!',
+	answerImgUrl: './crocodile.svg',
+	},
+	{
+		text: `Lives in seas and rivers. \nHis hands are like two pincers. \nAs round as a cab. \nWho is it? — It's a...`,
+		answer: 'Crab!',
+		answerImgUrl: './crab.svg',
+	},
+	];
+	
+	function App() {
+		return (
+			<div className="App">
+				<h1>Animal riddles</h1>
+        <Riddle riddle={riddles[0]}></Riddle>
+			</div>
+			);
+		}
+	</code>
+</pre>
+<aside class="notes">Let's pass the value to the component using props. We create an array of riddles with answers and images.
+</aside>
+
+        </section>
+				
+        <section>
+					<h3>Rendering Multiple Components</h3>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|11-13"><script type="text/template">
+const riddles = [
+{ text: 'Riddle1', answer: 'Answer1'},
+{ text: 'Riddle2', answer: 'Answer2'},
+{ text: 'Riddle3', answer: 'Answer3'},
 ];
 
 function App() {
@@ -249,7 +506,7 @@ function App() {
     </div>
   );
 }
-						</code>
+</script></code>
 					</pre>
           <ul
             class="fragment"
@@ -268,10 +525,13 @@ function App() {
               elements a stable identity.
             </li>
           </ul>
+					<aside class="notes"></aside>
         </section>
+
         <section>
           <video data-autoplay src="./map.mkv"></video>
         </section>
+
         <section><h2>Thank you!</h2></section>
       </div>
     </div>
