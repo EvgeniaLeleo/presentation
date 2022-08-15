@@ -228,13 +228,13 @@
         <section>
           <p>App.js</p>
           <pre><code>
-				function App() {
-					return (
-						<div className="App">
-							<h1>Animal riddles</h1>
-						</div>
-					);
-				}</code></pre>
+function App() {
+  return (
+    <div className="App">
+      <h1>Animal riddles</h1>
+    </div>
+  );
+}</code></pre>
 
           <p>App.css</p>
           <pre><code>
@@ -254,26 +254,26 @@
         <section>
           <p>Riddle.js</p>
           <pre><code>
-						import React from 'react';
-						import './Riddle.css';
-						
-						function Riddle() {
-							return (
-								<div className="Riddle">
-									<div className="Riddle-Content">
-										{`A lot of spots. \nA long, long neck \nA funny scarf \nIt's a...`}
-										<button className="Riddle-Button">Show answer</button>
-									</div>
-						
-									<div className="Riddle-Answer">
-										<p className="Riddle-AnswerText">Giraffe!</p>
-										<img className="Riddle-Img" src="./giraffe.svg" alt="giraffe"></img>
-									</div>
-								</div>
-							);
-						}
-						
-						export default Riddle;
+import React from 'react';
+import './Riddle.css';
+
+function Riddle() {
+  return (
+    <div className="Riddle">
+      <div className="Riddle-Content">
+        {`A lot of spots. \nA long, long neck \nA funny scarf \nIt's a...`}
+        <button className="Riddle-Button">Show answer</button>
+      </div>
+
+      <div className="Riddle-Answer">
+        <p className="Riddle-AnswerText">Giraffe!</p>
+        <img className="Riddle-Img" src="./giraffe.svg" alt="giraffe"></img>
+      </div>
+    </div>
+  );
+}
+
+export default Riddle;
 						</code></pre>
 
           <aside class="notes">
@@ -288,81 +288,81 @@
         <section>
           <p>Riddle.css</p>
           <pre><code>
-						.Riddle {
-							display: flex;
-							justify-content: space-between;
-						
-							width: 320px;
-							margin-bottom: 30px;
-						}
-						
-						.Riddle-Content {
-							display: flex;
-							flex-direction: column;
-							justify-content: space-between;
-							white-space: pre-wrap;
-						
-							width: 220px;
-							height: 150px;
-						}
-						
-						.Riddle-Answer {
-							display: flex;
-							flex-direction: column;
-							align-items: center;
-						
-							width: 100px;
-						}
-						
-						.Riddle-AnswerText {
-							font-size: larger;
-							font-weight: 600;
-						
-							margin: 0;
-							margin-bottom: 15px;
-						}
-						
-						.Riddle-Img {
-							height: 100px;
-						}
-						
-						.Riddle-Button {
-							font-weight: 600;
-							line-height: 0;
-							text-align: center;
-						
-							color: #6200ee;
-						
-							width: 140px;
-							padding: 20px 20px;
-						
-							background-color: #fff;
-							border-radius: 5px;
-							border: 1px solid #6200ee;
-							outline: transparent;
-						
-							box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.15);
-							cursor: pointer;
-							transition: all 0.2s ease;
-						}
-						
-						.Riddle-Button:active {
-							background-color: #e1cefc;
-							transform: translate(0, 1px);
-							box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
-						}
-						
-						.Riddle-Button:hover {
-							background-color: #e9dff8;
-						}
+.Riddle {
+  display: flex;
+  justify-content: space-between;
+
+  width: 320px;
+  margin-bottom: 30px;
+}
+
+.Riddle-Content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  white-space: pre-wrap;
+
+  width: 220px;
+  height: 150px;
+}
+
+.Riddle-Answer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100px;
+}
+
+.Riddle-AnswerText {
+  font-size: larger;
+  font-weight: 600;
+
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+.Riddle-Img {
+  height: 100px;
+}
+
+.Riddle-Button {
+  font-weight: 600;
+  line-height: 0;
+  text-align: center;
+
+  color: #6200ee;
+
+  width: 140px;
+  padding: 20px 20px;
+
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #6200ee;
+  outline: transparent;
+
+  box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.Riddle-Button:active {
+  background-color: #e1cefc;
+  transform: translate(0, 1px);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.Riddle-Button:hover {
+  background-color: #e9dff8;
+}
 						</code></pre>
 
 					</section>
 					
 					<section data-auto-animate>
 						<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|5|14-19"><script type="text/template">
-							import React from 'react';
-							import './Riddle.css';
+import React from 'react';
+import './Riddle.css';
 							
 function Riddle() {
   const isVisible = false;
@@ -397,7 +397,8 @@ function Riddle() {
           >
             <h3>Hooks</h3>
             <pre>
-							<code  data-trim>import { useState } from 'react';
+							<code  data-trim>
+import { useState } from 'react';
 								
 const [isVisible, setIsVisible] = useState(false);
 </code>
